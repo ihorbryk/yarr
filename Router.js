@@ -5,14 +5,22 @@ export const Router = (props) => {
   const [history, setHistory] = React.useState([]);
   const currentRoute = history[history.length - 1];
 
-  const navigateTo = (routeName) => {
-    const route = props.routes.find((route) => route.name == routeName);
-
+  const navigateToRoute = (route) => {
     if (route && route.name != currentRoute?.name) {
       setHistory([...history, route]);
     } else {
       throw "You try navigate to not exists route!";
     }
+  };
+
+  const navigateTo = (routeName) => {
+    const route = props.routes.find((routeItem) => routeItem.name == routeName);
+    navigateToRoute(route);
+  };
+
+  const navigateToPath = (path) => {
+    const route = props.routes.find((routeItem) => routeItem.path == path);
+    navigateToRoute(route);
   };
 
   React.useEffect(() => {
@@ -34,7 +42,9 @@ export const Router = (props) => {
   };
 
   return (
-    <RouterContext.Provider value={{ currentRoute, navigateTo, back }}>
+    <RouterContext.Provider
+      value={{ currentRoute, navigateTo, navigateToPath, back }}
+    >
       {currentRoute && currentRoute.component}
     </RouterContext.Provider>
   );
