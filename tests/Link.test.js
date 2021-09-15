@@ -30,7 +30,7 @@ it("Should display message in console if used outside of router", () => {
   render(<HomeComponent />);
 
   // The first argument of the first call to the function was 'hello'
-  expect(console.error.mock.calls[0][0]).toBe(
+  expect(console.error).toHaveBeenCalledWith(
     "You should not use Link outside of Router"
   );
 });
