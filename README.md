@@ -12,7 +12,7 @@ Yet another react router
 `HomePage.js`
 ```javascript
   const HomePage = () => {
-    return <div>Home page</div>;
+    return <div>Home page <Link to="/contact">Contact page</Link></div>;
   };
 
 ```
@@ -39,3 +39,10 @@ Yet another react router
   />
 ```
 
+### Router
+
+Router is base of routing. It's get all routes for application and init route for startging as props.
+### Link
+
+Represent link html element for navaigate to route by pass props `to` as string of path. If path exists in routes then after click `Router` change current rooute, if not then it throw exception with message "You try navigate to not exists route!"
+Link can not be used outside of `Router`.
