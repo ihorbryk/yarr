@@ -5,9 +5,9 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Link } from "../Link";
 
-it("Should display correct link text and route", () => {
+it("Should display wrapped element", () => {
   const HomeComponent = () => {
-    return <Link to="helloworld">Hello world</Link>;
+    return <Link to="helloworld"><a href="">Hello world</a></Link>;
   };
 
   render(
@@ -24,7 +24,7 @@ it("Should display message in console if used outside of router", () => {
   console.error = jest.fn();
 
   const HomeComponent = () => {
-    return <Link to="helloworld">Hello world</Link>;
+    return <Link to="helloworld"><a>Hello world</a></Link>;
   };
 
   render(<HomeComponent />);
@@ -36,7 +36,7 @@ it("Should display message in console if used outside of router", () => {
 
 it("Should change current path after cilck on Link", () => {
   const HomeComponent = () => {
-    return <Link to="/second">Hello world</Link>;
+    return <Link to="/second"><a href="">Hello world</a></Link>;
   };
 
   const SecondComponent = () => {

@@ -13,9 +13,5 @@ export function Link(props) {
     routerContext.navigateToPath(props.to);
   };
 
-  return (
-    <a href={props.to} onClick={handleClickOnLink}>
-      {props.children}
-    </a>
-  );
+  return React.cloneElement(props.children, { onClick: handleClickOnLink })
 }
