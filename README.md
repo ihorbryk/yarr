@@ -12,7 +12,7 @@ Yet another react router
 `HomePage.js`
 ```javascript
   const HomePage = () => {
-    return <div>Home page <Link to="/contact">Contact page</Link></div>;
+    return <div>Home page <Link to="/contact"><a href="">Contact page</a></Link></div>;
   };
 
 ```
