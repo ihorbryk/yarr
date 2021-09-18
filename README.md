@@ -44,5 +44,5 @@ Yet another react router
 Router is base of routing. It's get all routes for application and init route for startging as props.
 ### Link
 
-Represent link html element for navaigate to route by pass props `to` as string of path. If path exists in routes then after click `Router` change current rooute, if not then it throw exception with message "You try navigate to not exists route!"
+Link is clicable wrapper for any element. It used for navaigate by click to route passed as props `to` (actualy route string). If path exists in routes then after click `Router` change current rooute, if not then it throw exception with message "You try navigate to not exists route!"
 Link can not be used outside of `Router`.
